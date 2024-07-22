@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Product } from './types';
 import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
+import { GetContext } from '../context/createContext';
+import "./product-list.css"
+import { Link } from 'react-router-dom';
+
+
+
 
 
 const ProductList: React.FC = () => {
-    const [products, setProducts] = useState<Product[]>([]);
+    const { setCartData, cartData } = GetContext();
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -14,20 +20,42 @@ const ProductList: React.FC = () => {
                     throw new Error('Failed to fetch products');
                 }
                 const data: Product[] = await response.json();
-                setProducts(data);
+                const mapData: Product[] = data.map((product: Product) => {
+                    return { ...product, count: 0 }
+                })
+                setCartData(mapData);
             } catch (error) {
                 console.error('Error fetching products:', error);
             }
         };
-
-        fetchProducts();
+        const filterCount: Product[] = cartData.filter((product) => product?.count > 0);
+        if (filterCount.length == 0) {
+            fetchProducts();
+        }
     }, []);
+
+    function handleProductAdd(index: number, isAdding: boolean) {
+        if (isAdding) {
+            let updatedCartData: Product[] = [...cartData];
+            updatedCartData[index].count += 1;
+            setCartData(updatedCartData);
+        } else {
+            let updatedCartData: Product[] = [...cartData];
+            updatedCartData[index].count -= 1;
+            setCartData(updatedCartData);
+        }
+
+    }
+
 
     return (
         <div>
-            <h2>Products</h2>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "30px", justifyContent: "space-between", background: "#F1F1F2", padding: '20px' }}>
-                {products.map(product => (
+            <div className='shopping-cart-header-container' >
+                <h2>Products</h2>
+                <Link to="/shopping-cart/cart"><Button >Cart</Button></Link>
+            </div>
+            <div className="product-list-container">
+                {cartData.map((product, index) => (
                     <Card key={product.id} style={{
                         width: 270,
                     }}>
@@ -50,20 +78,49 @@ const ProductList: React.FC = () => {
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
-                        <CardActions>
-                            <Button
-                                size="small"
-                                color="primary"
-                                variant="contained"
-                                fullWidth
-                            >
-                                Add to Cart
-                            </Button>
-                        </CardActions>
+                        {
+                            product?.count > 0 ?
+                                <div className='card-actions'>
+                                    <CardActions>
+                                        <Button
+                                            size="small"
+                                            color="primary"
+                                            variant="contained"
+                                            fullWidth
+                                            onClick={() => handleProductAdd(index, false)}
+                                            sx={{ height: "30px" }}
+                                        >-</Button>
+                                    </CardActions>
+                                    <div>{product.count}</div>
+                                    <CardActions>
+                                        <Button
+                                            size="small"
+                                            color="primary"
+                                            variant="contained"
+                                            fullWidth
+                                            onClick={() => handleProductAdd(index, true)}
+                                            sx={{ height: "30px" }}
+                                        >+</Button>
+                                    </CardActions>
+                                </div>
+                                :
+                                <CardActions>
+                                    <Button
+                                        size="small"
+                                        color="primary"
+                                        variant="contained"
+                                        fullWidth
+                                        onClick={() => handleProductAdd(index, true)}
+                                    >
+                                        Add to Cart
+                                    </Button>
+                                </CardActions>
+                        }
                     </Card>
-                ))}
-            </div>
-        </div>
+                ))
+                }
+            </div >
+        </div >
     );
 };
 

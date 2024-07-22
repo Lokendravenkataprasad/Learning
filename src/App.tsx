@@ -5,8 +5,9 @@ import Todo from './components/todo/todo';
 import ApiFetching from './components/apiFetching/apiFetching';
 import ShoppingCart from './components/shoppingCart';
 import ChatBot from './components/chatBot';
-function App() {
+import Cart from './components/shoppingCart/cart';
 
+function App() {
   return (
     <>
       <Navbar />
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<div>Home page</div>} />
           <Route path="/todo" element={<Todo />} />
           <Route path="/shopping-cart" element={<ShoppingCart />} />
+          <Route path="/shopping-cart/cart" element={<Cart />} />
           <Route path="/api-fetching" element={<ApiFetching />} />
           <Route path="/chatbot" element={<ChatBot />} />
         </Routes>
