@@ -5,15 +5,14 @@
   }
   
   .chat-container {
-    width: 100%;
-    max-width: 600px;
+    width:900px;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 20px;
     margin-bottom: 20px;
-    height: 400px;
-    overflow-y: 'scroll';
+    height: 60vh;
+    overflow-y: scroll;
+    border-radius: 20px;
   }
-  
   
   
   .message.user {
@@ -36,7 +35,7 @@
   .input-form {
     display: flex;
     width: 100%;
-    max-width: 600px; 
+    gap: 10px;
   }
   
   .input-form input {
