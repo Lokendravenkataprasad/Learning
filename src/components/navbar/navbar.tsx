@@ -24,7 +24,7 @@ function Navbar() {
             className="pages-container"
           >
             {pages.map((page) => (
-              <Link to={page.path} style={{ textDecoration: 'none' }}>
+              <Link to={page.path} style={{ textDecoration: 'none' }} key={page.path}>
                 <Button
                   className="tab-name"
                   sx={{

@@ -1,0 +1,9 @@
+.product-row {
+    margin-top: 10px;
+    list-style-type: none;
+}
+
+.product-image {
+    width: 100px;
+    height: 100px;
+}
