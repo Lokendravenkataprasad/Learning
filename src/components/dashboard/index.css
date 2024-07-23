@@ -1,0 +1,19 @@
+.dashboard-container {
+    text-align: left;
+    padding: 20px;
+}
+
+.dashboard-title {
+    margin: 0px;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: "Public Sans", sans-serif;
+}
+
+.dashboard-card-container {
+    padding: 20px;
+    background-color: #F1F1F2;
+    margin-top: 20px;
+    border-radius: 10px;
+}

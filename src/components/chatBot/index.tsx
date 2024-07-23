@@ -40,7 +40,7 @@ const ChatBot: React.FC = () => {
 
 
     return (
-        <div className="App" >
+        <div className="chat-bot-container" >
             <h1>React Chat Bot</h1>
             <div className="chat-container">
                 <div>

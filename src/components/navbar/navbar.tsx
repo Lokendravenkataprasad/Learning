@@ -11,12 +11,12 @@ const pages = [
   { name: 'Todo', path: '/todo' },
   { name: 'Chatbot', path: '/chatbot' },
   { name: 'Shopping Cart', path: '/shopping-cart' },
-  { name: 'Api Fetching', path: '/api-fetching' },
+  { name: 'Dashboard', path: '/dashboard' },
 ];
 
 function Navbar() {
   return (
-    <AppBar position="static" className={'container'}>
+    <AppBar position="static" style={{ marginBottom: "10px" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box

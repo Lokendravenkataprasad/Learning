@@ -1,63 +1,61 @@
-.App {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .chat-container {
-    width:900px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-bottom: 20px;
-    height: 60vh;
-    overflow-y: scroll;
-    border-radius: 20px;
-  }
-  
-  
-  .message.user {
-    justify-content: flex-end; 
-  }
-  
-  .message.bot {
-    justify-content: flex-start; 
-  }
-  
-  .message-text {
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    max-width: 80%; 
-    word-wrap: break-word; 
-  }
+.chat-bot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  
-  .input-form {
-    display: flex;
-    width: 100%;
-    gap: 10px;
-  }
-  
-  .input-form input {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-  }
-  
-  .input-form button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: 1px solid #007bff;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-  }
-  
-  .input-form button:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-  }
-  
+.chat-container {
+  width: 900px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  height: 60vh;
+  overflow-y: scroll;
+  border-radius: 20px;
+}
+
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.bot {
+  justify-content: flex-start;
+}
+
+.message-text {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+
+.input-form {
+  display: flex;
+  gap: 10px;
+}
+
+.input-form input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.input-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.input-form button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
